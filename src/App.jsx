@@ -1,39 +1,43 @@
-import React, { Component } from 'react';
-import _ from 'lodash';
-import './App.css';
-import teams from './teams'
+import React, { Component } from 'react'
+import List from '@material-ui/core/List'
+import ListItem from '@material-ui/core/ListItem'
+import ListItemText from '@material-ui/core/ListItemText'
+import Avatar from '@material-ui/core/Avatar'
+import Card from '@material-ui/core/Card'
+import _ from 'lodash'
 
+import './App.css'
+import teams from './teams'
 
 const icon = (name) => (
   `https://s3-us-west-1.amazonaws.com/cse-tools/logos/nfl/${teams[name]}.png`
 )
 
-
 const Game = ({ data }) => (
-  <li className="game">
-    <div id="home-team">
-      <div className="team">
-        <img
-          alt="icon"
-          className="icon"
-          src={icon(_.get(data, 'home.team.name', ''))}
-        />
-        { _.get(data, 'home.team.score', '') }
-      </div>
-    </div>
-    <div id="away-team">
-      <div className="team">
-        <img
-          alt="icon"
-          className="icon"
-          src={icon(_.get(data, 'away.team.name', ''))}
-        />
-        <code>
-          { _.get(data, 'away.team.score', '') }
-        </code>
-      </div>
-    </div>
-  </li>
+  <ListItem className="game">
+    <Card>
+      <List>
+        <ListItem>
+          <Avatar
+            src={icon(_.get(data, 'home.team.name', ''))}
+          >
+          </Avatar>
+          <ListItemText
+            primary={ _.get(data, 'home.team.score', '') }
+          />
+        </ListItem>
+        <ListItem>
+          <Avatar
+            src={icon(_.get(data, 'away.team.name', ''))}
+          >
+          </Avatar>
+          <ListItemText
+            primary={ _.get(data, 'away.team.score', '') }
+          />
+        </ListItem>
+      </List>
+    </Card>
+ </ListItem>
 )
 
 class App extends Component {
@@ -48,7 +52,7 @@ class App extends Component {
     const url = '/californiastoke/nfl2016.json'
     fetch(url)
       .then((response) => {
-        return response.json();
+        return response.json()
       })
       .then((json) => {
         const { nfl } = json
@@ -56,19 +60,19 @@ class App extends Component {
         this.setState({
           games
         })
-      });
+      })
   }
 
   render() {
     const { games } = this.state
     return (
       <div className="App">
-        <ul>
+        <List>
           { games.map((g, idx) => <Game data={g} key={idx} />) }
-        </ul>
+        </List>
       </div>
-    );
+    )
   }
 }
 
-export default App;
+export default App
