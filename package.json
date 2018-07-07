@@ -1,0 +1,21 @@
+{
+  "name": "hello-lodash",
+  "version": "0.1.0",
+  "private": true,
+  "proxy": "https://s3-us-west-2.amazonaws.com/",
+  "dependencies": {
+    "lodash": "^4.17.10",
+    "react": "^16.4.1",
+    "react-dom": "^16.4.1",
+    "request": "^2.87.0"
+  },
+  "devDependencies": {
+    "react-scripts": "1.1.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
