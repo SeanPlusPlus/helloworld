@@ -42,7 +42,7 @@ class App extends Component {
         )
       })
       if (idx > -1) {
-        console.log('Chargers Game', games[idx])
+        console.log('Chargers Game Info:', games[idx])
       } else {
         console.log('No Chargers Game Found')
       }
@@ -50,7 +50,7 @@ class App extends Component {
     }
 
     // best offense 
-    if (action === 'highest') {
+    if (action === 'Best Offense') {
       const home = _.map(games, (g) => {
         return {
           team: _.get(g, 'home.team.name'),
@@ -67,9 +67,16 @@ class App extends Component {
       const offense = _.maxBy(scores, (g) => {
         return g.score 
       })
-      console.log('Best Offense', offense)
+      console.log('Best Offense:', offense.team)
       return
     }
+
+    // best defense
+    if (action === 'Best Defense') {
+      console.log('*', action, '*')
+      return
+    }
+
     console.log(action, games)
   }
 
@@ -93,7 +100,7 @@ class App extends Component {
             variant="outlined"
             color="primary"
             onClick={
-              () => this.handleClick('highest', gamesArray)
+              () => this.handleClick('Best Offense', gamesArray)
             }
           >
             Best Offense
@@ -107,6 +114,16 @@ class App extends Component {
             }
           >
             Chargers 
+          </Button>
+          <Button
+            className="btn"
+            variant="outlined"
+            color="primary"
+            onClick={
+              () => this.handleClick('Best Defense', gamesArray)
+            }
+          >
+            Best Defense
           </Button>
           <div>
             <p>
