@@ -8,3 +8,13 @@ body {
   margin-bottom: 0px;
   color: #333;
 }
+
+.btn {
+  color: #2196f3 !important;
+  margin-right: 7px !important;
+}
+
+#actions {
+  padding-left: 23px;
+  padding-top: 5px;
+}

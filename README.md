@@ -16,3 +16,5 @@ yarn start
 [`_.get()`](https://lodash.com/docs/4.17.10#get)
 
 [`_.map()`](https://lodash.com/docs/4.17.10#map)
+
+[`_.findIndex()`](https://lodash.com/docs/4.17.10#findIndex)
