@@ -12,6 +12,8 @@ body {
 .btn {
   color: #2196f3 !important;
   margin-right: 7px !important;
+  margin-top: 3px !important;
+  margin-bottom: 3px !important;
 }
 
 #actions {

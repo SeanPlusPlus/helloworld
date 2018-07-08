@@ -90,41 +90,31 @@ class App extends Component {
     // array of rendered games
     const games = _.map(gamesArray, renderGame) 
 
+    // button actions
+    const actions = [
+      'Best Offense',
+      'Chargers',
+      'Best Defense',
+    ]
+
     return (
       <div className="App">
         <h1 className="title">NFL Week 1 Scoreboard</h1>
         <hr />
         <div id="actions">
-          <Button
-            className="btn"
-            variant="outlined"
-            color="primary"
-            onClick={
-              () => this.handleClick('Best Offense', gamesArray)
-            }
-          >
-            Best Offense
-          </Button>
-          <Button
-            className="btn"
-            variant="outlined"
-            color="primary"
-            onClick={
-              () => this.handleClick('Chargers', gamesArray)
-            }
-          >
-            Chargers 
-          </Button>
-          <Button
-            className="btn"
-            variant="outlined"
-            color="primary"
-            onClick={
-              () => this.handleClick('Best Defense', gamesArray)
-            }
-          >
-            Best Defense
-          </Button>
+          {_.map(actions, (a) => (
+            <Button
+              key={a}
+              className="btn"
+              variant="outlined"
+              color="primary"
+              onClick={
+                () => this.handleClick(a, gamesArray)
+              }
+            >
+              {a}
+            </Button>
+          ))}
           <div>
             <p>
               <small>* open your dev console to see the output from the buttons</small>
