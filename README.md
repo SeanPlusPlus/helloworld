@@ -10,3 +10,10 @@ cd hello-lodash
 yarn install
 yarn start
 ```
+
+## Lodash Methods
+
+```
+_.get()
+_.map()
+```

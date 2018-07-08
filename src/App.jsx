@@ -1,44 +1,8 @@
 import React, { Component } from 'react'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
-import Avatar from '@material-ui/core/Avatar'
-import Card from '@material-ui/core/Card'
 import _ from 'lodash'
-
+import List from '@material-ui/core/List'
 import './App.css'
-import teams from './teams'
-
-const icon = (name) => (
-  `https://s3-us-west-1.amazonaws.com/cse-tools/logos/nfl/${teams[name]}.png`
-)
-
-const Game = ({ data }) => (
-  <ListItem className="game">
-    <Card>
-      <List>
-        <ListItem>
-          <Avatar
-            src={icon(_.get(data, 'home.team.name', ''))}
-          >
-          </Avatar>
-          <ListItemText
-            primary={ _.get(data, 'home.team.score', '') }
-          />
-        </ListItem>
-        <ListItem>
-          <Avatar
-            src={icon(_.get(data, 'away.team.name', ''))}
-          >
-          </Avatar>
-          <ListItemText
-            primary={ _.get(data, 'away.team.score', '') }
-          />
-        </ListItem>
-      </List>
-    </Card>
- </ListItem>
-)
+import Game from './Game'
 
 class App extends Component {
   constructor() {
@@ -63,12 +27,26 @@ class App extends Component {
       })
   }
 
+  renderGame(game, idx) {
+    return <Game data={game} key={idx} />
+  }
+
   render() {
-    const { games } = this.state
+    // get array of games
+    const gamesArray = _.get(this, 'state.games', [])
+
+    // function to render game
+    const renderGame = this.renderGame
+
+    // array of rendered games
+    const games = _.map(gamesArray, renderGame) 
+
     return (
       <div className="App">
+        <h1 className="title">NFL Week 1 Scoreboard</h1>
+        <hr />
         <List>
-          { games.map((g, idx) => <Game data={g} key={idx} />) }
+          { games }
         </List>
       </div>
     )
