@@ -33,6 +33,7 @@ class App extends Component {
   }
 
   handleClick(action, games) {
+    // chargers game
     if (action === 'Chargers') {
       const idx = _.findIndex(games, (g) => {
         return (
@@ -41,10 +42,32 @@ class App extends Component {
         )
       })
       if (idx > -1) {
-        console.log(games[idx])
+        console.log('Chargers Game', games[idx])
       } else {
         console.log('No Chargers Game Found')
       }
+      return
+    }
+
+    // best offense 
+    if (action === 'highest') {
+      const home = _.map(games, (g) => {
+        return {
+          team: _.get(g, 'home.team.name'),
+          score: _.get(g, 'home.team.score'),
+        }
+      })
+      const away = _.map(games, (g) => {
+        return {
+          team: _.get(g, 'away.team.name'),
+          score: _.get(g, 'away.team.score'),
+        }
+      })
+      const scores = _.concat(home, away)
+      const offense = _.maxBy(scores, (g) => {
+        return g.score 
+      })
+      console.log('Best Offense', offense)
       return
     }
     console.log(action, games)
@@ -69,15 +92,19 @@ class App extends Component {
             className="btn"
             variant="outlined"
             color="primary"
-            onClick={() => this.handleClick('highest', gamesArray)}
+            onClick={
+              () => this.handleClick('highest', gamesArray)
+            }
           >
-            Highest Score
+            Best Offense
           </Button>
           <Button
             className="btn"
             variant="outlined"
             color="primary"
-            onClick={() => this.handleClick('Chargers', gamesArray)}
+            onClick={
+              () => this.handleClick('Chargers', gamesArray)
+            }
           >
             Chargers 
           </Button>
