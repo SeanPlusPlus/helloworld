@@ -25,7 +25,7 @@ const Game = ({ data }) => (
           >
           </Avatar>
           <ListItemText
-            primary={ _.get(data, 'home.team.score', '') }
+            primary={ _.get(data, 'home.team.score', 'Ø') }
           />
         </ListItem>
         <ListItem>
@@ -34,7 +34,7 @@ const Game = ({ data }) => (
           >
           </Avatar>
           <ListItemText
-            primary={ _.get(data, 'away.team.score', '') }
+            primary={ _.get(data, 'away.team.score', 'Ø') }
           />
         </ListItem>
       </List>
