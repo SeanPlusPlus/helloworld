@@ -13,14 +13,16 @@ yarn start
 
 ## Lodash Methods
 
-[`_.concat()`](https://lodash.com/docs/4.17.10#concat)
+`1` [`_.concat()`](https://lodash.com/docs/4.17.10#concat)
 
-[`_.curry()`](https://lodash.com/docs/4.17.10#curry)
+`2` [`_.curry()`](https://lodash.com/docs/4.17.10#curry)
 
-[`_.findIndex()`](https://lodash.com/docs/4.17.10#findIndex)
+`3` [`_.filter()`](https://lodash.com/docs/4.17.10#filter)
 
-[`_.get()`](https://lodash.com/docs/4.17.10#get)
+`4` [`_.findIndex()`](https://lodash.com/docs/4.17.10#findIndex)
 
-[`_.map()`](https://lodash.com/docs/4.17.10#map)
+`5` [`_.get()`](https://lodash.com/docs/4.17.10#get)
 
-[`_.maxBy()`](https://lodash.com/docs/4.17.10#maxBy)
+`6` [`_.map()`](https://lodash.com/docs/4.17.10#map)
+
+`7` [`_.maxBy()`](https://lodash.com/docs/4.17.10#maxBy)

@@ -54,6 +54,7 @@ class App extends Component {
     const actionsArray = [
       'Best Offense',
       'Chargers',
+      'High Scoring',
       'Best Defense',
     ]
 
