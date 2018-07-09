@@ -21,17 +21,13 @@ const scores = (games) => {
 const handleClick = (action, games) => {
   // chargers game
   if (action === 'Chargers') {
-    const idx = _.findIndex(games, (g) => {
+    const game = _.find(games, (g) => {
       return (
         g.home.team.name === action ||
         g.away.team.name === action 
       )
     })
-    if (idx > -1) {
-      console.log('Chargers Game Info:', games[idx])
-    } else {
-      console.log('No Chargers Game Found')
-    }
+    console.log('Chargers Game, Yo:', game)
     return
   }
 
