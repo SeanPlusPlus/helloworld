@@ -1,6 +1,6 @@
 # Hello Lodash
 
-Hello world with various lodash functions
+Hello World React app using various Lodash functions
 
 ## Dev
 
