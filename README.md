@@ -19,7 +19,7 @@ yarn start
 
 `3` [`_.filter()`](https://lodash.com/docs/4.17.10#filter)
 
-`4` [`_.findIndex()`](https://lodash.com/docs/4.17.10#findIndex)
+`4` [`_.find()`](https://lodash.com/docs/4.17.10#find)
 
 `5` [`_.get()`](https://lodash.com/docs/4.17.10#get)
 
