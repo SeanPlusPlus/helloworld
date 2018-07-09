@@ -56,8 +56,6 @@ const handleClick = (action, games) => {
     console.log('*', action, '*')
     return
   }
-
-  console.log(action, games)
 }
 
 const Action = ({ name, games }) => (
