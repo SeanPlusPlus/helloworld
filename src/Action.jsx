@@ -1,6 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 import { Button } from 'reactstrap'
+import { setGlobal } from 'reactn'
 
 const scores = (games) => {
   const home = _.map(games, (g) => {
@@ -18,56 +19,60 @@ const scores = (games) => {
   return _.concat(home, away)
 }
 
-const handleClick = (action, games) => {
-  // chargers game
-  if (action === 'Chargers') {
-    const game = _.find(games, (g) => {
-      return (
-        g.home.team.name === action ||
-        g.away.team.name === action 
-      )
-    })
-    console.log('Chargers Game, Yo:', game)
-    return
-  }
 
-  // best offense 
-  if (action === 'Best Offense') {
-    const offense = _.maxBy(scores(games), (g) => {
-      return g.score 
-    })
-    console.log('Best Offense:', offense.team)
-    return
-  }
+const Action = ({ name, games }) => {
 
-  // high scoring games
-  if (action === 'High Scoring') {
-    const highScoring = _.filter(games, (g) => {
-      const home = _.get(g, 'home.team.score')
-      const away = _.get(g, 'away.team.score')
-      return (home > 20 && away > 20)
-    })
-    console.log('High Scoring Games', highScoring)
-    return
-  }
-
-  // best defense
-  if (action === 'Best Defense') {
-    console.log('*', action, '*')
-    return
-  }
-}
-
-const Action = ({ name, games }) => (
-  <Button
-    className="btn"
-    color="primary"
-    onClick={
-      () => handleClick(name, games)
+  function handleClick(action, games) {
+    // chargers game
+    if (action === 'Chargers') {
+      const game = _.find(games, (g) => {
+        return (
+          g.home.team.name === action ||
+          g.away.team.name === action 
+        )
+      })
+      const answer = `${game.home.team.name}: ${game.home.team.score} ⚡️${game.away.team.name}: ${game.away.team.score}`
+      setGlobal({ answer })
     }
-  >
-   {name}
-  </Button>
-)
+
+    // best offense 
+    if (action === 'Best Offense') {
+      const offense = _.maxBy(scores(games), (g) => {
+        return g.score 
+      })
+      const answer = `${action}: ${offense.team}`
+      setGlobal({ answer })
+    }
+
+    // high scoring games
+    if (action === 'High Scoring') {
+      const highScoring = _.filter(games, (g) => {
+        const home = _.get(g, 'home.team.score')
+        const away = _.get(g, 'away.team.score')
+        return (home > 20 && away > 20)
+      })
+      console.log('High Scoring Games', highScoring)
+      return
+    }
+
+    // best defense
+    if (action === 'Best Defense') {
+      const answer = `${action}: ?`
+      setGlobal({ answer })
+    }
+  }
+
+  return (
+    <Button
+      className="btn"
+      color="primary"
+      onClick={
+        () => handleClick(name, games)
+      }
+    >
+    {name}
+    </Button>
+  )
+}
 
 export default Action
