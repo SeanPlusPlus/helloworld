@@ -30,16 +30,16 @@ const Team = ({ data }) => (
   </Media>
 )
 
-const isHighScoring = (answer, idx) => (
-  (Array.isArray(answer) && _.includes(answer, idx))
+const isHighScoring = (highlight, idx) => (
+  _.includes(highlight, idx)
 )
 
 const Game = ({ data }) => {
-  const [answer] = useGlobal('answer')
+  const [highlight] = useGlobal('highlight')
 
   return (
     <ListGroupItem className="game">
-      <Card className={isHighScoring(answer, data.idx) ? 'high-scoring' : 'default-game'}>
+      <Card className={isHighScoring(highlight, data.idx) ? 'high-scoring' : 'default-game'}>
         <CardBody>
           <Team data={data.home.team} />
           <Team data={data.away.team} />

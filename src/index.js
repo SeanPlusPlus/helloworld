@@ -10,6 +10,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 // Reactn global state set up
 setGlobal({
   answer: null,
+  highlight: [],
 })
 
 ReactDOM.render(<App />, document.getElementById('root'))

@@ -4,14 +4,15 @@ import { useGlobal, setGlobal } from 'reactn'
 
 const Answer = () => {
   const [answer] = useGlobal('answer')
+  const [highlight] = useGlobal('highlight')
   return (
     <div id="answer">
       <Alert color="secondary">
         {(typeof answer === 'string' && answer)}
-        { answer && (
+        { (answer || highlight.length > 0) && (
           <button
             onClick={
-              () => { setGlobal({ answer: null }) }
+              () => { setGlobal({ answer: null, highlight: [] }) }
             }
             type="button"
             className="close"
