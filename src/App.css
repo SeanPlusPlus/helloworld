@@ -26,3 +26,17 @@ body {
   padding-top: 5px;
   color: #444;
 }
+
+#games > .game {
+  border: none;
+  width: 170px;
+}
+
+img.logo {
+  max-height: 40px;
+}
+
+.score {
+  padding-top: 7px;
+  padding-left: 15px;
+}

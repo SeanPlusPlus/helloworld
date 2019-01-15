@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
-import List from '@material-ui/core/List'
+import { ListGroup } from 'reactstrap'
 import './App.css'
 import Game from './Game'
 import Action from './Action'
@@ -69,9 +69,9 @@ class App extends Component {
           { actions }
         </div>
         <Help />
-        <List>
+        <ListGroup id="games">
           { games }
-        </List>
+        </ListGroup>
       </div>
     )
   }
