@@ -2,7 +2,7 @@ import React from 'react'
 import { Alert } from 'reactstrap'
 import { useGlobal, setGlobal } from 'reactn'
 
-const Answer = () => {
+const Main = () => {
   const [alert] = useGlobal('alert')
   const [highlight] = useGlobal('highlight')
   return (
@@ -26,4 +26,4 @@ const Answer = () => {
   )
 }
 
-export default Answer
+export default Main

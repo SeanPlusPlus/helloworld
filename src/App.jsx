@@ -4,7 +4,7 @@ import { Row, Col } from 'reactstrap'
 import './App.css'
 import Game from './Game'
 import Action from './Action'
-import Answer from './Answer'
+import Main from './Main'
 
 const App = () => {
   const [games, setGames] = useState([])
@@ -49,7 +49,7 @@ const App = () => {
       <div id="actions">
         { actions }
       </div>
-      <Answer />
+      <Main />
       <div id="games">
         <Row>
           { _.map(cols, (col, i) => (
