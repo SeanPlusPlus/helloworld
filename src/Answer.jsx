@@ -10,7 +10,9 @@ const Answer = () => {
         {(typeof answer === 'string' && answer)}
         { answer && (
           <button
-            onClick={() => {setGlobal({ answer: null })}}
+            onClick={
+              () => { setGlobal({ answer: null }) }
+            }
             type="button"
             className="close"
             aria-label="clear"
@@ -23,4 +25,4 @@ const Answer = () => {
   )
 }
 
-export default Answer 
+export default Answer

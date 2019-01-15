@@ -1,9 +1,10 @@
+/* eslint react/jsx-filename-extension: 0 */
 import React from 'react'
 import ReactDOM from 'react-dom'
 import './index.css'
-import App from './App'
-import registerServiceWorker from './registerServiceWorker'
 import { setGlobal } from 'reactn'
+import App from './App'
+import * as serviceWorker from './registerServiceWorker'
 import 'bootstrap/dist/css/bootstrap.min.css'
 
 // Reactn global state set up
@@ -12,4 +13,5 @@ setGlobal({
 })
 
 ReactDOM.render(<App />, document.getElementById('root'))
-registerServiceWorker()
+
+serviceWorker.register()

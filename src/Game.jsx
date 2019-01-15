@@ -1,6 +1,11 @@
 import React from 'react'
 import _ from 'lodash'
-import { ListGroupItem, CardBody, Card, Media } from 'reactstrap'
+import {
+  ListGroupItem,
+  CardBody,
+  Card,
+  Media,
+} from 'reactstrap'
 import { useGlobal } from 'reactn'
 import teams from './teams'
 
@@ -30,18 +35,17 @@ const isHighScoring = (answer, idx) => (
 )
 
 const Game = ({ data }) => {
-  
   const [answer] = useGlobal('answer')
-  
+
   return (
     <ListGroupItem className="game">
-      <Card className={isHighScoring(answer, data.idx) ? 'high-scoring': 'default-game'}>
+      <Card className={isHighScoring(answer, data.idx) ? 'high-scoring' : 'default-game'}>
         <CardBody>
           <Team data={data.home.team} />
           <Team data={data.away.team} />
         </CardBody>
       </Card>
-  </ListGroupItem>
+    </ListGroupItem>
   )
 }
 
