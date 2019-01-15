@@ -20,13 +20,13 @@ body {
   padding-top: 5px;
 }
 
-#alert {
-  padding-left: 23px;
+#main {
+  padding-left: 20px;
   padding-right: 23px;
   padding-top: 15px;
 }
 
-#alert > .alert {
+#main-alert {
   min-height: 50px;
 }
 
