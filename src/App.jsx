@@ -9,13 +9,14 @@ import Answer from './Answer'
 
 const App = () => {
   const [games, setGames] = useState([])
+  const [title] = useState('NFL 2016 Week 1 Scoreboard')
   
   useEffect(() => {
     const url = '/californiastoke/nfl2016.json'
     fetch(url)
-      .then((response) => {
-        return response.json()
-      })
+      .then((response) => (
+        response.json()
+      ))
       .then((json) => {
         const { nfl } = json
         const games = _.get(nfl, '[0].games').map((g, idx) => ({...g, idx}))
@@ -48,7 +49,7 @@ const App = () => {
 
   return (
     <div className="App">
-      <h1 className="title">NFL Week 1 Scoreboard</h1>
+      <h1 className="title">{title}</h1>
       <hr />
       <div id="actions">
         { actions }
