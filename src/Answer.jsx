@@ -1,16 +1,16 @@
 import React from 'react'
 import { Alert } from 'reactstrap'
+import { useGlobal } from 'reactn'
 
-const getAnswer = () => {
-  return ''
+const Answer = () => {
+  const [answer] = useGlobal('answer')
+  return (
+    <div id="answer">
+      <Alert color="secondary">
+        {(typeof answer === 'string' && answer)}
+      </Alert>
+    </div>
+  )
 }
-
-const Answer = () => (
-  <div id="answer">
-    <Alert color="secondary">
-      { getAnswer() }
-    </Alert>
-  </div>
-)
 
 export default Answer 

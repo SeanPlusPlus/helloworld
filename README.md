@@ -23,9 +23,11 @@ yarn start
 
 `5` [`_.get()`](https://lodash.com/docs/4.17.10#get)
 
-`6` [`_.map()`](https://lodash.com/docs/4.17.10#map)
+`6` [`_.includes()`](https://lodash.com/docs/4.17.10#includes)
 
-`7` [`_.maxBy()`](https://lodash.com/docs/4.17.10#maxBy)
+`7` [`_.map()`](https://lodash.com/docs/4.17.10#map)
+
+`8` [`_.maxBy()`](https://lodash.com/docs/4.17.10#maxBy)
 
 ## Exercises
 
@@ -34,13 +36,10 @@ yarn start
 ```
   // best defense
   if (action === 'Best Defense') {
-    console.log('*', action, '*')
-    return
+      const answer = `${action}: ?`
+      setGlobal({ answer })
   }
 ```
-
-`»` After a button is clicked, show the result on the page, and not just in the dev console
-
 
 `»` Add a visual indicator next to the winner of each game, for ex:
 

@@ -8,18 +8,24 @@
     "jquery": "1.9.1",
     "lodash": "^4.17.10",
     "popper.js": "^1.14.3",
-    "react": "^16.4.1",
-    "react-dom": "^16.4.1",
+    "react": "16.8.0-alpha",
+    "react-dom": "16.8.0-alpha",
+    "reactn": "^0.1.9",
     "reactstrap": "^7.0.2",
     "request": "^2.87.0"
   },
   "devDependencies": {
-    "react-scripts": "1.1.4"
+    "react-scripts": "2.1.1"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
-  }
+    "test": "react-scripts test --env=jsdom"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

@@ -1,6 +1,7 @@
 import React from 'react'
 import _ from 'lodash'
 import { ListGroupItem, CardBody, Card, Media } from 'reactstrap'
+import { useGlobal } from 'reactn'
 import teams from './teams'
 
 const getLogo = (name) => {
@@ -24,15 +25,24 @@ const Team = ({ data }) => (
   </Media>
 )
 
-const Game = ({ data }) => (
-  <ListGroupItem className="game">
-    <Card>
-      <CardBody>
-        <Team data={data.home.team} />
-        <Team data={data.away.team} />
-      </CardBody>
-    </Card>
- </ListGroupItem>
+const isHighScoring = (answer, idx) => (
+  (Array.isArray(answer) && _.includes(answer, idx))
 )
+
+const Game = ({ data }) => {
+  
+  const [answer] = useGlobal('answer')
+  
+  return (
+    <ListGroupItem className="game">
+      <Card className={isHighScoring(answer, data.idx) ? 'high-scoring': ''}>
+        <CardBody>
+          <Team data={data.home.team} />
+          <Team data={data.away.team} />
+        </CardBody>
+      </Card>
+  </ListGroupItem>
+  )
+}
 
 export default Game
