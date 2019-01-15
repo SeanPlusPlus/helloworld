@@ -4,7 +4,7 @@ import { ListGroup } from 'reactstrap'
 import './App.css'
 import Game from './Game'
 import Action from './Action'
-import Help from './Help'
+import Answer from './Answer'
 
 class App extends Component {
   constructor() {
@@ -41,11 +41,8 @@ class App extends Component {
     // get array of games
     const gamesArray = _.get(this, 'state.games', [])
 
-    // function to render game
-    const renderGame = this.renderGame
-
     // array of rendered games
-    const games = _.map(gamesArray, renderGame) 
+    const games = _.map(gamesArray, this.renderGame) 
 
     // function to render game
     const renderAction = this.renderAction
@@ -68,7 +65,7 @@ class App extends Component {
         <div id="actions">
           { actions }
         </div>
-        <Help />
+        <Answer />
         <ListGroup id="games">
           { games }
         </ListGroup>

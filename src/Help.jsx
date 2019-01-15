@@ -1,11 +1,12 @@
 import React from 'react'
+import { Alert } from 'reactstrap'
 
-const Help = () => (
-  <div id="help">
-    <p>
-      <small>* open your dev console to see the output from the buttons</small>
-    </p>
+const Answer = () => (
+  <div id="answer">
+    <Alert color="secondary">
+      This is a secondary alert — check it out!
+    </Alert>
   </div>
 )
 
-export default Help
+export default Answer 

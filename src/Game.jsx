@@ -3,7 +3,7 @@ import _ from 'lodash'
 import { ListGroupItem, CardBody, Card, Media } from 'reactstrap'
 import teams from './teams'
 
-const icon = (name) => {
+const getLogo = (name) => {
   const base = 'https://s3-us-west-1.amazonaws.com/cse-tools/logos/nfl/'
   if (name === null) {
     return `${base}nfl.png`
@@ -11,30 +11,25 @@ const icon = (name) => {
   return `${base}${teams[name]}.png`
 }
 
+const Team = ({ data }) => (
+  <Media>
+    <img
+      src={getLogo(_.get(data, 'name', null))}
+      alt="logo"
+      className="logo"
+    />
+    <div className="score">
+      {_.get(data, 'score', 'Ø') }
+    </div>
+  </Media>
+)
+
 const Game = ({ data }) => (
   <ListGroupItem className="game">
     <Card>
       <CardBody>
-        <Media>
-          <img
-            src={icon(_.get(data, 'home.team.name', null))}
-            alt="logo"
-            className="logo"
-          />
-          <div className="score">
-            {_.get(data, 'home.team.score', 'Ø') }
-          </div>
-        </Media>
-        <Media>
-          <img
-            src={icon(_.get(data, 'away.team.name', null))}
-            alt="logo"
-            className="logo"
-          />
-          <div className="score">
-            { _.get(data, 'away.team.score', 'Ø') }
-          </div>
-        </Media>
+        <Team data={data.home.team} />
+        <Team data={data.away.team} />
       </CardBody>
     </Card>
  </ListGroupItem>
