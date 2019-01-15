@@ -40,12 +40,10 @@ class App extends Component {
   render() {
     // get array of games
     const gamesArray = _.get(this, 'state.games', [])
-    console.log(gamesArray);
 
     // array of rendered games
     const games = _.map(gamesArray, this.renderGame)
     
-
     // games by column
     const cols = [
       _.filter(games, (g, i) => (i < 4)),
@@ -53,10 +51,6 @@ class App extends Component {
       _.filter(games, (g, i) => (i >= 8) && i < 12),
       _.filter(games, (g, i) => (i >= 12)),
     ]
-
-
-    // function to render game
-    const renderAction = this.renderAction
 
     // button actions
     const actionsArray = [
@@ -67,7 +61,7 @@ class App extends Component {
     ]
 
     // array of rendered actions
-    const actions = _.map(actionsArray, _.curry(renderAction)(gamesArray))
+    const actions = _.map(actionsArray, _.curry(this.renderAction)(gamesArray))
 
     return (
       <div className="App">
