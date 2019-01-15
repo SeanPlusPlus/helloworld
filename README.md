@@ -13,6 +13,8 @@ yarn start
 
 ## Lodash Methods
 
+`0` [`_.chunk()`](https://lodash.com/docs/4.17.10#chunk)
+
 `1` [`_.concat()`](https://lodash.com/docs/4.17.10#concat)
 
 `2` [`_.curry()`](https://lodash.com/docs/4.17.10#curry)
