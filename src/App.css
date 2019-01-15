@@ -30,7 +30,7 @@ body {
   min-height: 50px;
 }
 
-#games > .game {
+#games > .row > div > .game {
   border: none;
   width: 170px;
 }

@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
-import { ListGroup } from 'reactstrap'
+import { Row, Col } from 'reactstrap';
 import './App.css'
 import Game from './Game'
 import Action from './Action'
@@ -40,9 +40,20 @@ class App extends Component {
   render() {
     // get array of games
     const gamesArray = _.get(this, 'state.games', [])
+    console.log(gamesArray);
 
     // array of rendered games
-    const games = _.map(gamesArray, this.renderGame) 
+    const games = _.map(gamesArray, this.renderGame)
+    
+
+    // games by column
+    const cols = [
+      _.filter(games, (g, i) => (i < 4)),
+      _.filter(games, (g, i) => (i >= 4) && i < 8),
+      _.filter(games, (g, i) => (i >= 8) && i < 12),
+      _.filter(games, (g, i) => (i >= 12)),
+    ]
+
 
     // function to render game
     const renderAction = this.renderAction
@@ -66,9 +77,15 @@ class App extends Component {
           { actions }
         </div>
         <Answer />
-        <ListGroup id="games">
-          { games }
-        </ListGroup>
+        <div id="games">
+          <Row>
+            { _.map(cols, (col, i) => (
+              <Col key={i} sm="2">
+                { col }
+              </Col>
+            ))}
+          </Row>
+        </div>
       </div>
     )
   }
