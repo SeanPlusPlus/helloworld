@@ -34,8 +34,6 @@ const Action = ({ name, games }) => {
     // best offense
     if (action === 'Best Offense') {
       const offense = _.maxBy(scores(games), g => g.score)
-      console.log(offense)
-
       const alert = `${action}: ${offense.team}`
       const highlight = [offense.idx]
       setGlobal({ alert, highlight })

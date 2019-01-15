@@ -9,7 +9,7 @@ const Main = () => {
     <div id="alert">
       <Alert color="secondary">
         {(typeof alert === 'string' && alert)}
-        { (alert || highlight.length > 0) && (
+        { (alert || (highlight && highlight.length > 0)) && (
           <button
             onClick={
               () => { setGlobal({ alert: null, highlight: [] }) }
