@@ -34,7 +34,7 @@ const App = () => {
   // button actions
   const actionsArray = [
     'Best Offense',
-    'Chargers',
+    'Chargers Game',
     'High Scoring',
     'Best Defense',
   ]

@@ -21,10 +21,9 @@ const scores = (games) => {
 const Action = ({ name, games }) => {
   const handleClick = (action, gameData) => {
     // chargers game
-    if (action === 'Chargers') {
+    if (action === 'Chargers Game') {
       const game = _.find(gameData, g => (
-        g.home.team.name === action
-          || g.away.team.name === action
+        g.home.team.name === 'Chargers' || g.away.team.name === 'Chargers'
       ))
       const alert = `${game.home.team.name}: ${game.home.team.score} ⚡️${game.away.team.name}: ${game.away.team.score}` // eslint-disable-line max-len
       const highlight = [game.idx]
