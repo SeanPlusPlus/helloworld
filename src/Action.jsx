@@ -70,7 +70,7 @@ const Action = ({ name, games }) => {
         () => handleClick(name, games)
       }
     >
-    {name}
+      {name}
     </Button>
   )
 }
