@@ -8,6 +8,7 @@ Hello World React app using various Lodash functions
 git clone git@code.espn.com:Sean-M-Stephenson/hello-lodash.git
 cd hello-lodash
 yarn install
+yarn validate
 yarn start
 ```
 
