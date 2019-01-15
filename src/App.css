@@ -43,3 +43,8 @@ img.logo {
   padding-top: 7px;
   padding-left: 15px;
 }
+
+div.high-scoring {
+  border: 1px solid #111;
+  background-color: #fafafa;
+}

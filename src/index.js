@@ -11,7 +11,5 @@ setGlobal({
   answer: null,
 })
 
-
 ReactDOM.render(<App />, document.getElementById('root'))
 registerServiceWorker()
-

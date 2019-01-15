@@ -51,8 +51,8 @@ const Action = ({ name, games }) => {
         const away = _.get(g, 'away.team.score')
         return (home > 20 && away > 20)
       })
-      console.log('High Scoring Games', highScoring)
-      return
+      const answer = _.map(highScoring, (h) => (h.idx))
+      setGlobal({ answer })
     }
 
     // best defense

@@ -22,15 +22,15 @@ class App extends Component {
       })
       .then((json) => {
         const { nfl } = json
-        const games = _.get(nfl, '[0].games')
+        const games = _.get(nfl, '[0].games').map((g, idx) => ({...g, idx}))
         this.setState({
           games
         })
       })
   }
 
-  renderGame(game, idx) {
-    return <Game data={game} key={idx} />
+  renderGame(game) {
+    return <Game data={game} key={game.idx} />
   }
 
   renderAction(games, name, idx) {

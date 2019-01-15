@@ -7,7 +7,7 @@ const Answer = () => {
   return (
     <div id="answer">
       <Alert color="secondary">
-        {answer}
+        {(typeof answer === 'string' && answer)}
       </Alert>
     </div>
   )
