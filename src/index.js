@@ -9,7 +9,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 
 // Reactn global state set up
 setGlobal({
-  answer: null,
+  alert: null,
   highlight: [],
 })
 

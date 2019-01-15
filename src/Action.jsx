@@ -26,9 +26,9 @@ const Action = ({ name, games }) => {
         g.home.team.name === action
           || g.away.team.name === action
       ))
-      const answer = `${game.home.team.name}: ${game.home.team.score} ⚡️${game.away.team.name}: ${game.away.team.score}` // eslint-disable-line max-len
+      const alert = `${game.home.team.name}: ${game.home.team.score} ⚡️${game.away.team.name}: ${game.away.team.score}` // eslint-disable-line max-len
       const highlight = [game.idx]
-      setGlobal({ answer, highlight })
+      setGlobal({ alert, highlight })
     }
 
     // best offense
@@ -36,9 +36,9 @@ const Action = ({ name, games }) => {
       const offense = _.maxBy(scores(games), g => g.score)
       console.log(offense)
 
-      const answer = `${action}: ${offense.team}`
+      const alert = `${action}: ${offense.team}`
       const highlight = [offense.idx]
-      setGlobal({ answer, highlight })
+      setGlobal({ alert, highlight })
     }
 
     // high scoring games
@@ -48,16 +48,16 @@ const Action = ({ name, games }) => {
         const away = _.get(g, 'away.team.score')
         return (home > 20 && away > 20)
       })
-      const answer = `There were ${highScoring.length} games where both teams scored more than 40`
+      const alert = `There were ${highScoring.length} games where both teams scored more than 40`
       const highlight = _.map(highScoring, h => (h.idx))
-      setGlobal({ answer, highlight })
+      setGlobal({ alert, highlight })
     }
 
     // best defense
     if (action === 'Best Defense') {
-      const answer = `${action}: ?`
+      const alert = `${action}: ?`
       const highlight = []
-      setGlobal({ answer, highlight })
+      setGlobal({ alert, highlight })
     }
   }
 

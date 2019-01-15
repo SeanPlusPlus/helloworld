@@ -39,8 +39,8 @@ yarn start
 ```
   // best defense
   if (action === 'Best Defense') {
-    const answer = `${action}: ?`
-    setGlobal({ answer })
+    const alert = `${action}: ?`
+    setGlobal({ alert })
   }
 ```
 

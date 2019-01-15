@@ -20,13 +20,13 @@ body {
   padding-top: 5px;
 }
 
-#answer {
+#alert {
   padding-left: 23px;
   padding-right: 23px;
   padding-top: 15px;
 }
 
-#answer > .alert {
+#alert > .alert {
   min-height: 50px;
 }
 

@@ -3,16 +3,16 @@ import { Alert } from 'reactstrap'
 import { useGlobal, setGlobal } from 'reactn'
 
 const Answer = () => {
-  const [answer] = useGlobal('answer')
+  const [alert] = useGlobal('alert')
   const [highlight] = useGlobal('highlight')
   return (
-    <div id="answer">
+    <div id="alert">
       <Alert color="secondary">
-        {(typeof answer === 'string' && answer)}
-        { (answer || highlight.length > 0) && (
+        {(typeof alert === 'string' && alert)}
+        { (alert || highlight.length > 0) && (
           <button
             onClick={
-              () => { setGlobal({ answer: null, highlight: [] }) }
+              () => { setGlobal({ alert: null, highlight: [] }) }
             }
             type="button"
             className="close"
