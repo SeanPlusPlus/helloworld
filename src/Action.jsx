@@ -1,6 +1,6 @@
 import React from 'react'
 import _ from 'lodash'
-import Button from '@material-ui/core/Button'
+import { Button } from 'reactstrap'
 
 const scores = (games) => {
   const home = _.map(games, (g) => {
@@ -61,7 +61,6 @@ const handleClick = (action, games) => {
 const Action = ({ name, games }) => (
   <Button
     className="btn"
-    variant="outlined"
     color="primary"
     onClick={
       () => handleClick(name, games)

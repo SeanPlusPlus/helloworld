@@ -1,10 +1,10 @@
 import React, { Component } from 'react'
 import _ from 'lodash'
-import List from '@material-ui/core/List'
+import { Row, Col } from 'reactstrap';
 import './App.css'
 import Game from './Game'
 import Action from './Action'
-import Help from './Help'
+import Answer from './Answer'
 
 class App extends Component {
   constructor() {
@@ -41,14 +41,16 @@ class App extends Component {
     // get array of games
     const gamesArray = _.get(this, 'state.games', [])
 
-    // function to render game
-    const renderGame = this.renderGame
-
     // array of rendered games
-    const games = _.map(gamesArray, renderGame) 
-
-    // function to render game
-    const renderAction = this.renderAction
+    const games = _.map(gamesArray, this.renderGame)
+    
+    // games by column
+    const cols = [
+      _.filter(games, (g, i) => (i < 4)),
+      _.filter(games, (g, i) => (i >= 4) && i < 8),
+      _.filter(games, (g, i) => (i >= 8) && i < 12),
+      _.filter(games, (g, i) => (i >= 12)),
+    ]
 
     // button actions
     const actionsArray = [
@@ -59,7 +61,7 @@ class App extends Component {
     ]
 
     // array of rendered actions
-    const actions = _.map(actionsArray, _.curry(renderAction)(gamesArray))
+    const actions = _.map(actionsArray, _.curry(this.renderAction)(gamesArray))
 
     return (
       <div className="App">
@@ -68,10 +70,16 @@ class App extends Component {
         <div id="actions">
           { actions }
         </div>
-        <Help />
-        <List>
-          { games }
-        </List>
+        <Answer />
+        <div id="games">
+          <Row>
+            { _.map(cols, (col, i) => (
+              <Col key={i} sm="2">
+                { col }
+              </Col>
+            ))}
+          </Row>
+        </div>
       </div>
     )
   }

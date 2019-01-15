@@ -1,13 +1,9 @@
 import React from 'react'
 import _ from 'lodash'
-import List from '@material-ui/core/List'
-import ListItem from '@material-ui/core/ListItem'
-import ListItemText from '@material-ui/core/ListItemText'
-import Avatar from '@material-ui/core/Avatar'
-import Card from '@material-ui/core/Card'
+import { ListGroupItem, CardBody, Card, Media } from 'reactstrap'
 import teams from './teams'
 
-const icon = (name) => {
+const getLogo = (name) => {
   const base = 'https://s3-us-west-1.amazonaws.com/cse-tools/logos/nfl/'
   if (name === null) {
     return `${base}nfl.png`
@@ -15,31 +11,28 @@ const icon = (name) => {
   return `${base}${teams[name]}.png`
 }
 
+const Team = ({ data }) => (
+  <Media>
+    <img
+      src={getLogo(_.get(data, 'name', null))}
+      alt="logo"
+      className="logo"
+    />
+    <div className="score">
+      {_.get(data, 'score', 'Ø') }
+    </div>
+  </Media>
+)
+
 const Game = ({ data }) => (
-  <ListItem className="game">
+  <ListGroupItem className="game">
     <Card>
-      <List>
-        <ListItem>
-          <Avatar
-            src={icon(_.get(data, 'home.team.name', null))}
-          >
-          </Avatar>
-          <ListItemText
-            primary={ _.get(data, 'home.team.score', 'Ø') }
-          />
-        </ListItem>
-        <ListItem>
-          <Avatar
-            src={icon(_.get(data, 'away.team.name', null))}
-          >
-          </Avatar>
-          <ListItemText
-            primary={ _.get(data, 'away.team.score', 'Ø') }
-          />
-        </ListItem>
-      </List>
+      <CardBody>
+        <Team data={data.home.team} />
+        <Team data={data.away.team} />
+      </CardBody>
     </Card>
- </ListItem>
+ </ListGroupItem>
 )
 
 export default Game

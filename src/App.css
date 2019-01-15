@@ -10,7 +10,6 @@ body {
 }
 
 .btn {
-  color: #2196f3 !important;
   margin-right: 7px !important;
   margin-top: 3px !important;
   margin-bottom: 3px !important;
@@ -21,8 +20,26 @@ body {
   padding-top: 5px;
 }
 
-#help {
+#answer {
   padding-left: 23px;
-  padding-top: 5px;
-  color: #444;
+  padding-right: 23px;
+  padding-top: 15px;
+}
+
+#answer > .alert {
+  min-height: 50px;
+}
+
+#games > .row > div > .game {
+  border: none;
+  width: 170px;
+}
+
+img.logo {
+  max-height: 40px;
+}
+
+.score {
+  padding-top: 7px;
+  padding-left: 15px;
 }
