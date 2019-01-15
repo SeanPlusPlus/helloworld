@@ -22,7 +22,7 @@ const scores = (games) => {
 
 const Action = ({ name, games }) => {
 
-  function handleClick(action, games) {
+  const handleClick = (action, games) => {
     // chargers game
     if (action === 'Chargers') {
       const game = _.find(games, (g) => {

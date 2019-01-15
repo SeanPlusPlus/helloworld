@@ -20,7 +20,7 @@ const Team = ({ data }) => (
       className="logo"
     />
     <div className="score">
-      {_.get(data, 'score', 'Ø') }
+      { _.get(data, 'score', 'Ø') }
     </div>
   </Media>
 )
