@@ -35,7 +35,7 @@ const Game = ({ data }) => {
   
   return (
     <ListGroupItem className="game">
-      <Card className={isHighScoring(answer, data.idx) ? 'high-scoring': ''}>
+      <Card className={isHighScoring(answer, data.idx) ? 'high-scoring': 'default-game'}>
         <CardBody>
           <Team data={data.home.team} />
           <Team data={data.away.team} />
